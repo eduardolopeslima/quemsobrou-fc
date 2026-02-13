@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Sobrou FC - Painel Admin</title>
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- TELA DE LOGIN (INICIAL) -->
+    <!-- ============================================ -->
+    <div id="login-page" class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fas fa-futbol"></i>
+                <h1>Quem Sobrou FC</h1>
+                <p>Acesso Administrativo</p>
+            </div>
+            
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" class="form-control" placeholder="Digite seu usuário" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="remember-me"> Lembrar meu usuário
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+                
+                <div id="login-error" class="login-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="error-message">Usuário ou senha incorretos</span>
+                </div>
+            </form>
+            
+            <div class="login-footer">
+                <a href="index.html">← Voltar para o site</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PAINEL ADMIN (OCULTO INICIALMENTE) -->
+    <!-- ============================================ -->
+    <div id="app-container" style="display: none;">
+        <!-- HEADER -->
+        <header class="admin-header">
+            <div class="header-top">
+                <div>
+                    <h1><i class="fas fa-futbol"></i> Painel Administrativo</h1>
+                    <p class="user-info"></p>
+                </div>
+                <div class="header-actions">
+                    <button id="home-btn" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                    <button id="logout-btn" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </button>
+                </div>
+            </div>
+            
+            <!-- NAVEGAÇÃO -->
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-page="new-match">
+                    <i class="fas fa-plus-circle"></i> Nova Partida
+                </div>
+                <div class="nav-tab" data-page="manage-players">
+                    <i class="fas fa-users"></i> Gerenciar Jogadores
+                </div>
+                <div class="nav-tab" data-page="tournament">
+                    <i class="fas fa-diagram-project"></i> Mata-Mata
+                </div>
+                <div class="nav-tab" data-page="mural">
+                    <i class="fas fa-chart-bar"></i> Mural
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO -->
+        <div class="content">
+            <!-- PÁGINA: NOVA PARTIDA -->
+            <div id="new-match-page" class="page active">
+                <div class="step-container">
+                    <h2><i class="fas fa-futbol"></i> Registrar Nova Partida</h2>
+                    
+                    <!-- STEP 1: ADICIONAR JOGADORES -->
+                    <div id="step1">
+                        <h3>Passo 1: Adicione os jogadores</h3>
+                        <div class="form-row">
+                            <input type="text" id="playerName" class="form-control" placeholder="Nome do jogador">
+                            <button id="addPlayer" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Adicionar
+                            </button>
+                        </div>
+                        
+                        <div class="players-list-container">
+                            <h4>Jogadores nesta partida: <span id="playersCount">0</span></h4>
+                            <div id="playersList" class="players-list"></div>
+                            <div id="emptyPlayersMessage" class="empty-state">
+                                <p>Nenhum jogador adicionado.</p>
+                            </div>
+                        </div>
+                        
+                        <button id="goToStep2" class="btn btn-success">
+                            Próximo <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- STEP 2: ESTATÍSTICAS -->
+                    <div id="step2" style="display: none;">
+                        <h3>Passo 2: Insira gols e assistências</h3>
+                        
+                        <table id="statsTable">
+                            <thead>
+                                <tr>
+                                    <th>Jogador</th>
+                                    <th>Gols</th>
+                                    <th>Assistências</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statsTableBody"></tbody>
+                        </table>
+                        <div id="emptyStatsMessage" class="empty-state">
+                            <p>Nenhum jogador na partida.</p>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="backToStep1" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </button>
+                            <button id="goToStep3" class="btn btn-success">
+                                Ver Resultados <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- STEP 3: RESULTADOS -->
+                    <div id="step3" style="display: none;">
+                        <h3>Passo 3: Resultados da partida</h3>
+                        
+                        <div id="resultsContainer" class="results-container"></div>
+                        <div id="emptyResultsMessage" class="empty-state">
+                            <p>Nenhum resultado para exibir.</p>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="backToStep2" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </button>
+                            <button id="saveMatch" class="btn btn-success">
+                                <i class="fas fa-save"></i> Salvar Partida
+                            </button>
+                            <button id="resetAll" class="btn btn-warning">
+                                <i class="fas fa-redo"></i> Nova Partida
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PÁGINA: GERENCIAR JOGADORES -->
+            <div id="manage-players-page" class="page">
+                <div class="container">
+                    <h2><i class="fas fa-users"></i> Gerenciar Jogadores</h2>
+                    
+                    <div class="form-row">
+                        <input type="text" id="newPlayerName" class="form-control" placeholder="Nome do jogador">
+                        <button id="addNewPlayer" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Cadastrar
+                        </button>
+                    </div>
+                    
+                    <h3>Jogadores Cadastrados</h3>
+                    <div id="allPlayersList" class="players-list"></div>
+                    <div id="noPlayersMessage" class="empty-state">
+                        <p>Nenhum jogador cadastrado.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PÁGINA: MATA-MATA -->
+            <div id="tournament-page" class="page">
+                <div class="container">
+                    <h2><i class="fas fa-diagram-project"></i> Campeonato Mata-Mata</h2>
+                    
+                    <div class="form-row">
+                        <input type="text" id="tournamentName" class="form-control" placeholder="Nome do campeonato">
+                        <select id="tournamentSeason" class="form-control">
+                            <option value="">Temporada</option>
+                            <option value="Verão">Verão</option>
+                            <option value="Outono">Outono</option>
+                            <option value="Inverno">Inverno</option>
+                            <option value="Primavera">Primavera</option>
+                        </select>
+                        <select id="tournamentYear" class="form-control">
+                            <option value="2024">2024</option>
+                        </select>
+                        <button id="createTournamentBtn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Criar
+                        </button>
+                    </div>
+                    
+                    <h3>Campeonatos Criados</h3>
+                    <div id="tournamentsList" class="tournaments-list"></div>
+                    <div id="noTournamentsMessage" class="empty-state">
+                        <p>Nenhum campeonato criado.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PÁGINA: MURAL -->
+            <div id="mural-page" class="page">
+                <div class="container">
+                    <h2><i class="fas fa-chart-bar"></i> Mural de Estatísticas</h2>
+                    
+                    <div class="period-selector">
+                        <button class="period-btn prev-period"><i class="fas fa-chevron-left"></i></button>
+                        <span id="currentPeriod">2024</span>
+                        <button class="period-btn next-period"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="period-tabs">
+                        <button class="period-tab active" data-period-type="year">Anual</button>
+                        <button class="period-tab" data-period-type="month">Mensal</button>
+                    </div>
+                    
+                    <div id="monthSelector" style="display: none;"></div>
+                    
+                    <div id="periodStats" class="stats-grid"></div>
+                    <div id="playerStatsGrid" class="player-stats-grid"></div>
+                    <div id="matchesList" class="matches-list"></div>
+                    <div id="noMatchesMessage" class="empty-state">
+                        <p>Nenhuma partida no período.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/credentials.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

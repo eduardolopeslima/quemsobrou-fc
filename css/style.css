@@ -1,0 +1,1965 @@
+/* ============================================
+QUEM SOBROU FC - ESTILOS GLOBAIS
+============================================ */
+
+/* ===== VARIÁVEIS ===== */
+:root {
+--primary: #0D2C54;
+--secondary: #FF9A3C;
+--success: #27ae60;
+--warning: #f39c12;
+--danger: #F47C20;
+--light: #ecf0f1;
+--dark: #2c3e50;
+--text: #333;
+--text-light: #7f8c8d;
+--border: #F4F4F4;
+--shadow: 0 2px 10px rgba(0,0,0,0.1);
+--radius: 8px;
+}
+
+/* ===== RESET ===== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f8f9fa;
+color: var(--text);
+line-height: 1.6;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+background-color: var(--primary);
+color: white;
+padding: 1rem 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: var(--shadow);
+}
+
+.nav-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.nav-brand {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.nav-brand i {
+font-size: 1.8rem;
+color: var(--secondary);
+}
+
+.nav-brand h1 {
+font-size: 1.5rem;
+margin: 0;
+}
+
+.nav-menu {
+display: flex;
+gap: 15px;
+align-items: center;
+}
+
+.nav-link {
+color: white;
+text-decoration: none;
+padding: 8px 16px;
+border-radius: var(--radius);
+transition: all 0.3s;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.nav-link:hover {
+background-color: rgba(255,255,255,0.1);
+}
+
+.nav-link.active {
+background-color: var(--secondary);
+}
+
+.nav-btn {
+background-color: var(--danger);
+color: white;
+border: none;
+padding: 8px 20px;
+border-radius: var(--radius);
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 5px;
+font-size: 1rem;
+transition: all 0.3s;
+}
+
+.nav-btn:hover {
+background-color: #c0392b;
+}
+
+.nav-toggle {
+display: none;
+background: none;
+border: none;
+color: white;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+background: linear-gradient(135deg, var(--primary), var(--dark));
+color: white;
+padding: 80px 20px;
+text-align: center;
+}
+
+.hero h2 {
+font-size: 2.5rem;
+margin-bottom: 20px;
+}
+
+.hero p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+
+/* ===== STATS GRID ===== */
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 30px;
+margin: 40px 0;
+}
+
+.stat-card {
+background: white;
+padding: 30px;
+border-radius: var(--radius);
+text-align: center;
+box-shadow: var(--shadow);
+transition: transform 0.3s;
+}
+
+.stat-card:hover {
+transform: translateY(-5px);
+}
+
+.stat-card i {
+font-size: 2.5rem;
+color: var(--secondary);
+margin-bottom: 15px;
+}
+
+.stat-card h3 {
+color: var(--primary);
+margin-bottom: 10px;
+}
+
+.stat-value {
+font-size: 1.5rem;
+font-weight: bold;
+color: var(--success);
+}
+
+/* ===== FORMULÁRIOS ===== */
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 500;
+color: var(--primary);
+}
+
+.form-control {
+width: 100%;
+padding: 12px;
+border: 2px solid var(--border);
+border-radius: var(--radius);
+font-size: 1rem;
+transition: border-color 0.3s;
+}
+
+.form-control:focus {
+outline: none;
+border-color: var(--secondary);
+}
+
+.form-row {
+display: flex;
+gap: 15px;
+margin-bottom: 20px;
+}
+
+.form-row .form-control {
+flex: 1;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+padding: 12px 25px;
+border: none;
+border-radius: var(--radius);
+font-size: 1rem;
+font-weight: 500;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: all 0.3s;
+}
+
+.btn-primary {
+background-color: var(--secondary);
+color: white;
+}
+
+.btn-primary:hover {
+background-color: #2980b9;
+}
+
+.btn-success {
+background-color: var(--success);
+color: white;
+}
+
+.btn-success:hover {
+background-color: #219653;
+}
+
+.btn-danger {
+background-color: var(--danger);
+color: white;
+}
+
+.btn-danger:hover {
+background-color: #c0392b;
+}
+
+.btn-warning {
+background-color: var(--warning);
+color: white;
+}
+
+.btn-warning:hover {
+background-color: #e67e22;
+}
+
+.btn-secondary {
+background-color: var(--text-light);
+color: white;
+}
+
+.btn-secondary:hover {
+background-color: #6c7a89;
+}
+
+.btn-sm {
+padding: 8px 15px;
+font-size: 0.9rem;
+}
+
+/* ===== MODAL ===== */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+
+.modal.active {
+display: flex;
+}
+
+.modal-content {
+background: white;
+border-radius: var(--radius);
+width: 90%;
+max-width: 400px;
+animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+from {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.modal-header {
+background-color: var(--primary);
+color: white;
+padding: 20px;
+border-radius: var(--radius) var(--radius) 0 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.modal-header h3 {
+margin: 0;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.close-modal {
+background: none;
+border: none;
+color: white;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+.modal-body {
+padding: 30px;
+}
+
+/* ===== LOGIN ERROR ===== */
+.login-error {
+display: none;
+background-color: #fee;
+border: 1px solid #fcc;
+color: var(--danger);
+padding: 12px;
+border-radius: var(--radius);
+margin-top: 15px;
+align-items: center;
+gap: 10px;
+}
+
+.login-error.show {
+display: flex;
+}
+
+/* ===== PLAYERS LIST ===== */
+.players-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin: 20px 0;
+}
+
+.player-item {
+background-color: #f8f9fa;
+padding: 15px;
+border-radius: var(--radius);
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-left: 4px solid var(--secondary);
+}
+
+.player-info {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.player-name {
+font-weight: 600;
+color: var(--primary);
+}
+
+.remove-player {
+background-color: var(--danger);
+color: white;
+border: none;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s;
+}
+
+.remove-player:hover {
+background-color: #c0392b;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+text-align: center;
+padding: 60px 20px;
+color: var(--text-light);
+}
+
+.empty-state i {
+font-size: 3rem;
+margin-bottom: 15px;
+opacity: 0.5;
+}
+
+.empty-state h3 {
+color: var(--text);
+margin-bottom: 10px;
+}
+
+.empty-state.small {
+padding: 30px 20px;
+}
+
+/* ===== PERIOD SELECTOR ===== */
+.period-selector {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+margin: 30px 0;
+background: white;
+padding: 15px;
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+}
+
+.period-btn {
+background: none;
+border: 1px solid var(--border);
+width: 40px;
+height: 40px;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.period-btn:hover {
+background-color: var(--light);
+}
+
+#currentPeriod {
+font-size: 1.3rem;
+font-weight: bold;
+color: var(--primary);
+}
+
+/* ===== PERIOD TABS ===== */
+.period-tabs {
+display: flex;
+gap: 10px;
+justify-content: center;
+margin-bottom: 30px;
+}
+
+.period-tab {
+padding: 12px 24px;
+background: white;
+border: 1px solid var(--border);
+border-radius: var(--radius);
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.period-tab:hover {
+border-color: var(--secondary);
+}
+
+.period-tab.active {
+background-color: var(--secondary);
+color: white;
+border-color: var(--secondary);
+}
+
+/* ===== MONTH SELECTOR ===== */
+.month-selector {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+margin-bottom: 30px;
+}
+
+.month-btn {
+padding: 10px;
+background: white;
+border: 1px solid var(--border);
+border-radius: var(--radius);
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.month-btn:hover {
+background-color: var(--light);
+}
+
+.month-btn.active {
+background-color: var(--secondary);
+color: white;
+border-color: var(--secondary);
+}
+
+/* ===== MATCHES LIST ===== */
+.matches-list {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 30px;
+}
+
+.match-card {
+background: white;
+padding: 20px;
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+}
+
+.match-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 15px;
+padding-bottom: 15px;
+border-bottom: 1px solid var(--border);
+}
+
+.match-date {
+color: var(--text-light);
+font-size: 0.9rem;
+}
+
+.match-stats {
+display: flex;
+gap: 20px;
+color: var(--text-light);
+}
+
+.match-stats i {
+color: var(--secondary);
+margin-right: 5px;
+}
+
+/* ===== TOURNAMENTS GRID ===== */
+.tournaments-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 30px;
+margin: 40px 0;
+}
+
+.tournament-card {
+background: white;
+border-radius: var(--radius);
+overflow: hidden;
+box-shadow: var(--shadow);
+transition: transform 0.3s;
+}
+
+.tournament-card:hover {
+transform: translateY(-5px);
+}
+
+.tournament-header {
+background: linear-gradient(135deg, var(--primary), var(--dark));
+color: white;
+padding: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.tournament-season {
+background: rgba(255,255,255,0.2);
+padding: 5px 12px;
+border-radius: 20px;
+font-size: 0.9rem;
+}
+
+.tournament-status {
+padding: 5px 12px;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 600;
+}
+
+.status-active {
+background: var(--success);
+color: white;
+}
+
+.status-finished {
+background: var(--text-light);
+color: white;
+}
+
+.tournament-body {
+padding: 20px;
+}
+
+.tournament-name {
+font-size: 1.3rem;
+color: var(--primary);
+margin-bottom: 15px;
+}
+
+.tournament-meta {
+display: flex;
+flex-direction: column;
+gap: 10px;
+color: var(--text-light);
+}
+
+.tournament-meta i {
+color: var(--secondary);
+width: 20px;
+}
+
+.tournament-footer {
+padding: 20px;
+border-top: 1px solid var(--border);
+text-align: right;
+}
+
+/* ===== FILTROS ===== */
+.filters {
+display: flex;
+gap: 15px;
+margin: 30px 0;
+}
+
+.filters .form-control {
+max-width: 200px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+background-color: var(--primary);
+color: rgb(255, 255, 255);
+text-align: center;
+padding: 30px 0;
+margin-top: 60px;
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-toggle {
+    display: block;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+}
+
+.form-row {
+    flex-direction: column;
+}
+
+.filters {
+    flex-direction: column;
+}
+
+.filters .form-control {
+    max-width: 100%;
+}
+
+.month-selector {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.tournaments-grid {
+    grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 480px) {
+.period-selector {
+    flex-wrap: wrap;
+}
+
+.month-selector {
+    grid-template-columns: 1fr;
+}
+}
+
+/* ===== SEÇÃO SOBRE O TIME ===== */
+    .about-section {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+    }
+    
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .about-content h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-content h2 i {
+        color: var(--secondary);
+        margin-right: 10px;
+    }
+    
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text);
+        margin-bottom: 20px;
+    }
+    
+    .about-stats {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .about-stat {
+        text-align: center;
+    }
+    
+    .about-stat .number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--secondary);
+        display: block;
+    }
+    
+    .about-stat .label {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+    
+    .about-image {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+    }
+    
+    .about-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    .about-image-placeholder {
+        background: linear-gradient(135deg, var(--primary), var(--dark));
+        color: white;
+        padding: 60px 40px;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .about-image-placeholder i {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+    
+    .about-image-placeholder p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+    
+    /* ===== SELETOR DE MÊS NOS DESTAQUES ===== */
+    .month-highlight-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin: 20px 0 40px;
+    }
+    
+    .month-nav-btn {
+        background: white;
+        border: 2px solid var(--border);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+    }
+    
+    .month-nav-btn:hover {
+        background: var(--secondary);
+        border-color: var(--secondary);
+        color: white;
+    }
+    
+    .current-month {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--primary);
+        background: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+    }
+    
+    @media (max-width: 768px) {
+        .about-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .about-stats {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .month-highlight-selector {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+    }
+
+    /* ============================================
+        MURAL DE ESTATÍSTICAS - CARDS DE JOGADORES
+        ============================================ */
+    
+    .mural-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 30px 0;
+        background: linear-gradient(135deg, var(--primary), #1a252f);
+        color: white;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .mural-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .mural-header h1 i {
+        color: var(--secondary);
+        margin-right: 10px;
+    }
+    
+    .mural-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    /* SELETOR DE PERÍODO */
+    .period-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .period-navigation {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #f8f9fa;
+        padding: 10px 20px;
+        border-radius: 40px;
+    }
+    
+    .period-btn {
+        background: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: var(--primary);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .period-btn:hover {
+        background: var(--secondary);
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .current-period {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--primary);
+        min-width: 180px;
+        text-align: center;
+    }
+    
+    .period-tabs {
+        display: flex;
+        gap: 10px;
+        background: #f8f9fa;
+        padding: 5px;
+        border-radius: 40px;
+    }
+    
+    .period-tab {
+        padding: 10px 25px;
+        border: none;
+        background: transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+        color: var(--text-light);
+    }
+    
+    .period-tab:hover {
+        background: rgba(52, 152, 219, 0.1);
+        color: var(--secondary);
+    }
+    
+    .period-tab.active {
+        background: var(--secondary);
+        color: white;
+    }
+    
+    /* SELETOR DE MESES */
+    .month-selector {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        margin: 20px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .month-btn {
+        padding: 12px;
+        border: 1px solid var(--border);
+        background: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 500;
+        color: var(--text);
+    }
+    
+    .month-btn:hover {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+    
+    .month-btn.active {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+    
+    /* CARDS DE ESTATÍSTICAS GERAIS */
+    .stats-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin: 30px 0;
+    }
+    
+    .stat-summary-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: transform 0.3s;
+    }
+    
+    .stat-summary-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .stat-summary-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--secondary), #2980b9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .stat-summary-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .stat-summary-info {
+        flex: 1;
+    }
+    
+    .stat-summary-info h3 {
+        font-size: 2rem;
+        margin: 0;
+        color: var(--primary);
+        line-height: 1.2;
+    }
+    
+    .stat-summary-info p {
+        margin: 5px 0 0;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+    
+    /* CARDS DE JOGADORES */
+    .players-section {
+        margin: 50px 0;
+    }
+    
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .section-title i {
+        font-size: 2rem;
+        color: var(--secondary);
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin: 0;
+    }
+    
+    .players-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+    }
+    
+    .player-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s;
+        position: relative;
+        border: 1px solid var(--border);
+    }
+    
+    .player-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .player-card-header {
+        background: linear-gradient(135deg, var(--primary), #1a252f);
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .player-rank {
+        background: rgba(255,255,255,0.2);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .player-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .player-badges {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .player-badge {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+    }
+    
+    .badge-gold {
+        background: #f1c40f;
+        color: #000;
+    }
+    
+    .badge-green {
+        background: #27ae60;
+    }
+    
+    .badge-blue {
+        background: #3498db;
+    }
+    
+    .badge-purple {
+        background: #9b59b6;
+    }
+    
+    .player-card-body {
+        padding: 20px;
+    }
+    
+    .player-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .player-stat-item {
+        text-align: center;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+    
+    .player-stat-label {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-bottom: 5px;
+    }
+    
+    .player-stat-value {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+    
+    .player-stat-sub {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-left: 5px;
+    }
+    
+    .player-rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        background: #fff9e6;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    
+    .player-rating-label {
+        color: #856404;
+        font-weight: 600;
+    }
+    
+    .player-rating-value {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #f39c12;
+    }
+    
+    .player-card-footer {
+        padding: 15px 20px;
+        background: #f8f9fa;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    /* CARD DE JOGADOR DESTAQUE */
+    .player-card.featured {
+        border: 2px solid #f1c40f;
+    }
+    
+    .player-card.featured .player-card-header {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+    }
+    
+    /* LISTA DE PARTIDAS */
+    .matches-section {
+        margin: 50px 0;
+    }
+    
+    .matches-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+    }
+    
+    .match-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--secondary);
+        transition: transform 0.3s;
+    }
+    
+    .match-card:hover {
+        transform: translateX(5px);
+    }
+    
+    .match-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .match-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    .match-date i {
+        color: var(--secondary);
+        margin-right: 5px;
+    }
+    
+    .match-players-count {
+        background: #e8f5e9;
+        color: #27ae60;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .match-stats {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .match-stat {
+        text-align: center;
+    }
+    
+    .match-stat i {
+        color: var(--secondary);
+        font-size: 1.1rem;
+    }
+    
+    .match-stat span {
+        display: block;
+        margin-top: 5px;
+        font-weight: 600;
+        color: var(--primary);
+    }
+    
+    .match-stat small {
+        color: var(--text-light);
+        font-size: 0.8rem;
+    }
+    
+    .match-mvp {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed var(--border);
+        text-align: center;
+        color: var(--text-light);
+    }
+    
+    .match-mvp i {
+        color: #f1c40f;
+        margin-right: 5px;
+    }
+    
+    .match-mvp strong {
+        color: var(--primary);
+    }
+    
+    /* EMPTY STATES */
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .empty-state i {
+        font-size: 3rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    
+    .empty-state h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+    
+    .empty-state p {
+        color: var(--text-light);
+    }
+    
+    /* RESPONSIVIDADE */
+    @media (max-width: 992px) {
+        .stats-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .month-selector {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .period-container {
+            flex-direction: column;
+        }
+        
+        .period-tabs {
+            width: 100%;
+        }
+        
+        .period-tab {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stats-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .month-selector {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .players-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .matches-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .month-selector {
+            grid-template-columns: 1fr;
+        }
+        
+        .period-navigation {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* ============================================
+        MURAL DE ESTATÍSTICAS - CARDS DE JOGADORES
+        ============================================ */
+    
+    .mural-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 30px 0;
+        background: linear-gradient(135deg, var(--primary), #1a252f);
+        color: white;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .mural-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .mural-header h1 i {
+        color: var(--secondary);
+        margin-right: 10px;
+    }
+    
+    .mural-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    /* SELETOR DE PERÍODO */
+    .period-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .period-navigation {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #f8f9fa;
+        padding: 10px 20px;
+        border-radius: 40px;
+    }
+    
+    .period-btn {
+        background: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: var(--primary);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .period-btn:hover {
+        background: var(--secondary);
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .current-period {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--primary);
+        min-width: 180px;
+        text-align: center;
+    }
+    
+    .period-tabs {
+        display: flex;
+        gap: 10px;
+        background: #f8f9fa;
+        padding: 5px;
+        border-radius: 40px;
+    }
+    
+    .period-tab {
+        padding: 10px 25px;
+        border: none;
+        background: transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+        color: var(--text-light);
+    }
+    
+    .period-tab:hover {
+        background: rgba(52, 152, 219, 0.1);
+        color: var(--secondary);
+    }
+    
+    .period-tab.active {
+        background: var(--secondary);
+        color: white;
+    }
+    
+    /* SELETOR DE MESES */
+    .month-selector {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        margin: 20px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .month-btn {
+        padding: 12px;
+        border: 1px solid var(--border);
+        background: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 500;
+        color: var(--text);
+    }
+    
+    .month-btn:hover {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+    
+    .month-btn.active {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+    
+    /* CARDS DE ESTATÍSTICAS GERAIS */
+    .stats-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin: 30px 0;
+    }
+    
+    .stat-summary-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: transform 0.3s;
+    }
+    
+    .stat-summary-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .stat-summary-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--secondary), #2980b9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .stat-summary-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .stat-summary-info {
+        flex: 1;
+    }
+    
+    .stat-summary-info h3 {
+        font-size: 2rem;
+        margin: 0;
+        color: var(--primary);
+        line-height: 1.2;
+    }
+    
+    .stat-summary-info p {
+        margin: 5px 0 0;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+    
+    /* CARDS DE JOGADORES */
+    .players-section {
+        margin: 50px 0;
+    }
+    
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .section-title i {
+        font-size: 2rem;
+        color: var(--secondary);
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin: 0;
+    }
+    
+    .players-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+    }
+    
+    .player-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s;
+        position: relative;
+        border: 1px solid var(--border);
+    }
+    
+    .player-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .player-card-header {
+        background: linear-gradient(135deg, var(--primary), #1a252f);
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .player-rank {
+        background: rgba(255,255,255,0.2);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .player-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .player-badges {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .player-badge {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+    }
+    
+    .badge-gold {
+        background: #f1c40f;
+        color: #000;
+    }
+    
+    .badge-green {
+        background: #27ae60;
+    }
+    
+    .badge-blue {
+        background: #3498db;
+    }
+    
+    .badge-purple {
+        background: #9b59b6;
+    }
+    
+    .player-card-body {
+        padding: 20px;
+    }
+    
+    .player-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .player-stat-item {
+        text-align: center;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+    
+    .player-stat-label {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-bottom: 5px;
+    }
+    
+    .player-stat-value {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+    
+    .player-stat-sub {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-left: 5px;
+    }
+    
+    .player-rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        background: #fff9e6;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    
+    .player-rating-label {
+        color: #856404;
+        font-weight: 600;
+    }
+    
+    .player-rating-value {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #f39c12;
+    }
+    
+    .player-card-footer {
+        padding: 15px 20px;
+        background: #f8f9fa;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    /* CARD DE JOGADOR DESTAQUE */
+    .player-card.featured {
+        border: 2px solid #f1c40f;
+    }
+    
+    .player-card.featured .player-card-header {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+    }
+    
+    /* LISTA DE PARTIDAS */
+    .matches-section {
+        margin: 50px 0;
+    }
+    
+    .matches-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+    }
+    
+    .match-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--secondary);
+        transition: transform 0.3s;
+    }
+    
+    .match-card:hover {
+        transform: translateX(5px);
+    }
+    
+    .match-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .match-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    .match-date i {
+        color: var(--secondary);
+        margin-right: 5px;
+    }
+    
+    .match-players-count {
+        background: #e8f5e9;
+        color: #27ae60;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .match-stats {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .match-stat {
+        text-align: center;
+    }
+    
+    .match-stat i {
+        color: var(--secondary);
+        font-size: 1.1rem;
+    }
+    
+    .match-stat span {
+        display: block;
+        margin-top: 5px;
+        font-weight: 600;
+        color: var(--primary);
+    }
+    
+    .match-stat small {
+        color: var(--text-light);
+        font-size: 0.8rem;
+    }
+    
+    .match-mvp {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed var(--border);
+        text-align: center;
+        color: var(--text-light);
+    }
+    
+    .match-mvp i {
+        color: #f1c40f;
+        margin-right: 5px;
+    }
+    
+    .match-mvp strong {
+        color: var(--primary);
+    }
+    
+    /* EMPTY STATES */
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+    
+    .empty-state i {
+        font-size: 3rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    
+    .empty-state h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+    
+    .empty-state p {
+        color: var(--text-light);
+    }
+    
+    /* RESPONSIVIDADE */
+    @media (max-width: 992px) {
+        .stats-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .month-selector {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .period-container {
+            flex-direction: column;
+        }
+        
+        .period-tabs {
+            width: 100%;
+        }
+        
+        .period-tab {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stats-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .month-selector {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .players-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .matches-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .month-selector {
+            grid-template-columns: 1fr;
+        }
+        
+        .period-navigation {
+            width: 100%;
+            justify-content: center;
+        }
+    }

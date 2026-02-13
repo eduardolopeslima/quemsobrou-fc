@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Sobrou FC - Início</title>
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-futbol"></i>
+                <h1>Quem Sobrou FC</h1>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i> Início
+                </a>
+                <a href="mural.html" class="nav-link">
+                    <i class="fas fa-chart-bar"></i> Estatísticas
+                </a>
+                <a href="tournament.html" class="nav-link">
+                    <i class="fas fa-trophy"></i> Campeonatos
+                </a>
+                <button id="admin-login-btn" class="nav-btn">
+                    <i class="fas fa-user-shield"></i> Admin
+                </button>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bem-vindo ao Quem Sobrou FC</h2>
+            <p>Futebol, amizade e competitividade desde 2019</p>
+        </div>
+    </section>
+
+    
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>
+                    <i class="fas fa-futbol"></i> 
+                    Sobre nós
+                </h2>
+                <div class="about-text">
+                    <p>O <strong>Quem Sobrou FC</strong> nasceu da paixão de um grupo de amigos pelo futebol. Mais do que um futebol semanal, somos uma comunidade de jogadores apaixonados por cerveja.</p>
+                    <p>Baseado na resenha, na amizade e na competitividade saudável. Aqui, todos têm espaço para jogar, brincar e tomar uma.</p>
+                    <p>Acompanhe nossas estatísticas, resultados e campeonatos. Seja bem-vindo aos <strong>Que Sobraram</strong>.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="number" id="totalJogadores">0</span>
+                        <span class="label">Jogadores</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="number" id="totalPartidas">0</span>
+                        <span class="label">Partidas</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="number" id="totalGols">0</span>
+                        <span class="label">Gols</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="number" id="totalAssists">0</span>
+                        <span class="label">Assistências</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="images/quem-sobrou-fc.jpg" alt="Time Quem Sobrou FC" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="about-image-placeholder" style="display: none;">
+                    <i class="fas fa-users"></i>
+                    <p>🖼️ Quem Sobrou FC</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Adicione aqui a foto do time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- DESTAQUES DO MÊS (ATUALIZADO) -->
+    <!-- ============================================ -->
+    <section class="highlights">
+        <div class="container">
+            <h2><i class="fas fa-calendar-alt"></i> Destaques do Mês</h2>
+            
+            <!-- SELETOR DE MÊS -->
+            <div class="month-highlight-selector">
+                <button id="prevMonthBtn" class="month-nav-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="currentMonthDisplay" class="current-month">
+                    <i class="fas fa-calendar"></i> 
+                    <span id="monthName">Fevereiro 2024</span>
+                </span>
+                <button id="nextMonthBtn" class="month-nav-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- CARDS DE DESTAQUE -->
+            <div class="stats-grid" id="monthlyHighlights">
+                <div class="stat-card highlight-card" id="artilheiroCard">
+                    <div class="stat-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <span class="stat-badge">⚽ ARTILHEIRO DO MÊS</span>
+                    <h3 id="artilheiroNome">---</h3>
+                    <p class="player-stats" id="artilheiroStats">0 gols</p>
+                    <div class="player-meta" id="artilheiroMeta"></div>
+                </div>
+                
+                <div class="stat-card highlight-card" id="assistenteCard">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <span class="stat-badge">🎯 GARÇOM DO MÊS</span>
+                    <h3 id="assistenteNome">---</h3>
+                    <p class="player-stats" id="assistenteStats">0 assistências</p>
+                    <div class="player-meta" id="assistenteMeta"></div>
+                </div>
+                
+                <div class="stat-card highlight-card" id="mvpCard">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="stat-badge">🏆 MVP DO MÊS</span>
+                    <h3 id="mvpNome">---</h3>
+                    <p class="player-stats" id="mvpStats">⭐ 0.0 de média</p>
+                    <div class="player-meta" id="mvpMeta"></div>
+                </div>
+            </div>
+            
+            <!-- MENSAGEM DE CARREGAMENTO -->
+            <div id="highlightsLoading" class="empty-state" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Carregando estatísticas do mês...</p>
+            </div>
+            
+            <!-- MENSAGEM SEM DADOS -->
+            <div id="noHighlightsMessage" class="empty-state" style="display: none;">
+                <i class="fas fa-calendar-times"></i>
+                <h3>Nenhum destaque no mês</h3>
+                <p>Ainda não há partidas registradas em <span id="emptyMonthName">Fevereiro 2024</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MODAL DE LOGIN -->
+    <!-- ============================================ -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-shield"></i> Acesso Administrativo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" class="form-control" placeholder="Digite seu usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="remember-me"> Lembrar meu usuário
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Entrar no Painel
+                    </button>
+                    <div id="login-error" class="login-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="error-message">Usuário ou senha incorretos</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- RODAPÉ -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-futbol"></i>
+                    <h3>Quem Sobrou FC</h3>
+                    <p>Futebol, amizade e competitividade desde 2019</p>
+                </div>
+                
+                <div class="footer-social">
+                    <!-- <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram"></i></a> -->
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Quem Sobrou FC. Todos os direitos reservados.</p>
+                <p>V1.2.26</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/credentials.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos do seletor de mês
+            const prevMonthBtn = document.getElementById('prevMonthBtn');
+            const nextMonthBtn = document.getElementById('nextMonthBtn');
+            const monthNameEl = document.getElementById('monthName');
+            const emptyMonthNameEl = document.getElementById('emptyMonthName');
+            
+            // Estado do mês atual
+            let currentMonth = new Date().getMonth() + 1; // 1-12
+            let currentYear = new Date().getFullYear();
+            
+            // Nomes dos meses
+            const monthNames = [
+                'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+            ];
+            
+            // Atualizar título do mês
+            function atualizarTituloMes() {
+                const nomeMes = `${monthNames[currentMonth - 1]} ${currentYear}`;
+                if (monthNameEl) monthNameEl.textContent = nomeMes;
+                if (emptyMonthNameEl) emptyMonthNameEl.textContent = nomeMes;
+            }
+            
+            // Carregar dados do localStorage
+            function carregarDadosMes() {
+                try {
+                    const saved = localStorage.getItem('quemSobrouFC');
+                    if (!saved) return { players: [], matches: [] };
+                    
+                    const data = JSON.parse(saved);
+                    return {
+                        players: data.players || [],
+                        matches: data.matches || []
+                    };
+                } catch (e) {
+                    console.error('Erro ao carregar dados:', e);
+                    return { players: [], matches: [] };
+                }
+            }
+            
+            // Filtrar partidas do mês atual
+            function filtrarPartidasDoMes() {
+                const dados = carregarDadosMes();
+                
+                return dados.matches.filter(match => {
+                    const data = new Date(match.data);
+                    const ano = data.getFullYear();
+                    const mes = data.getMonth() + 1;
+                    return ano === currentYear && mes === currentMonth;
+                });
+            }
+            
+            // Calcular estatísticas do mês
+            function calcularEstatisticasMes() {
+                const partidas = filtrarPartidasDoMes();
+                const dados = carregarDadosMes();
+                
+                const stats = {
+                    jogadores: {},
+                    totalGols: 0,
+                    totalAssists: 0,
+                    totalPartidas: partidas.length
+                };
+                
+                // Inicializar jogadores
+                dados.players.forEach(jogador => {
+                    stats.jogadores[jogador.id] = {
+                        id: jogador.id,
+                        nome: jogador.nome,
+                        partidas: 0,
+                        gols: 0,
+                        assists: 0,
+                        rating: 0
+                    };
+                });
+                
+                // Calcular estatísticas das partidas do mês
+                partidas.forEach(partida => {
+                    partida.estatisticas.forEach(est => {
+                        if (stats.jogadores[est.jogadorId]) {
+                            stats.jogadores[est.jogadorId].partidas++;
+                            stats.jogadores[est.jogadorId].gols += est.gols || 0;
+                            stats.jogadores[est.jogadorId].assists += est.assists || 0;
+                            stats.jogadores[est.jogadorId].rating += est.rating || 0;
+                        }
+                    });
+                });
+                
+                return stats;
+            }
+            
+            // Atualizar cards de destaque
+            function atualizarDestaquesMes() {
+                const stats = calcularEstatisticasMes();
+                const partidas = filtrarPartidasDoMes();
+                
+                const loadingEl = document.getElementById('highlightsLoading');
+                const noDataEl = document.getElementById('noHighlightsMessage');
+                const cardsContainer = document.getElementById('monthlyHighlights');
+                
+                // Se não houver partidas no mês
+                if (partidas.length === 0) {
+                    cardsContainer.style.display = 'none';
+                    if (noDataEl) noDataEl.style.display = 'block';
+                    if (loadingEl) loadingEl.style.display = 'none';
+                    
+                    // Limpar cards
+                    document.getElementById('artilheiroNome').textContent = '---';
+                    document.getElementById('artilheiroStats').textContent = '0 gols';
+                    document.getElementById('assistenteNome').textContent = '---';
+                    document.getElementById('assistenteStats').textContent = '0 assistências';
+                    document.getElementById('mvpNome').textContent = '---';
+                    document.getElementById('mvpStats').textContent = '⭐ 0.0 de média';
+                    return;
+                }
+                
+                // Mostrar cards e esconder mensagens
+                cardsContainer.style.display = 'grid';
+                if (noDataEl) noDataEl.style.display = 'none';
+                if (loadingEl) loadingEl.style.display = 'none';
+                
+                // Encontrar artilheiro
+                let artilheiro = null;
+                let maxGols = 0;
+                
+                // Encontrar garçom
+                let assistente = null;
+                let maxAssists = 0;
+                
+                // Encontrar MVP (melhor média de rating)
+                let mvp = null;
+                let maxMedia = 0;
+                
+                Object.values(stats.jogadores).forEach(jogador => {
+                    if (jogador.partidas === 0) return;
+                    
+                    // Gols
+                    if (jogador.gols > maxGols) {
+                        maxGols = jogador.gols;
+                        artilheiro = jogador;
+                    }
+                    
+                    // Assistências
+                    if (jogador.assists > maxAssists) {
+                        maxAssists = jogador.assists;
+                        assistente = jogador;
+                    }
+                    
+                    // Média de rating
+                    const media = jogador.rating / jogador.partidas;
+                    if (media > maxMedia) {
+                        maxMedia = media;
+                        mvp = jogador;
+                    }
+                });
+                
+                // Atualizar card do artilheiro
+                if (artilheiro) {
+                    document.getElementById('artilheiroNome').textContent = artilheiro.nome;
+                    document.getElementById('artilheiroStats').textContent = `${artilheiro.gols} gol${artilheiro.gols !== 1 ? 's' : ''}`;
+                    document.getElementById('artilheiroMeta').innerHTML = `<small>⚽ ${artilheiro.partidas} jogo${artilheiro.partidas !== 1 ? 's' : ''}</small>`;
+                } else {
+                    document.getElementById('artilheiroNome').textContent = '---';
+                    document.getElementById('artilheiroStats').textContent = '0 gols';
+                    document.getElementById('artilheiroMeta').innerHTML = '';
+                }
+                
+                // Atualizar card do assistente
+                if (assistente) {
+                    document.getElementById('assistenteNome').textContent = assistente.nome;
+                    document.getElementById('assistenteStats').textContent = `${assistente.assists} assistência${assistente.assists !== 1 ? 's' : ''}`;
+                    document.getElementById('assistenteMeta').innerHTML = `<small>🎯 ${assistente.partidas} jogo${assistente.partidas !== 1 ? 's' : ''}</small>`;
+                } else {
+                    document.getElementById('assistenteNome').textContent = '---';
+                    document.getElementById('assistenteStats').textContent = '0 assistências';
+                    document.getElementById('assistenteMeta').innerHTML = '';
+                }
+                
+                // Atualizar card do MVP
+                if (mvp) {
+                    const mediaFormatada = (mvp.rating / mvp.partidas).toFixed(1);
+                    document.getElementById('mvpNome').textContent = mvp.nome;
+                    document.getElementById('mvpStats').textContent = `⭐ ${mediaFormatada} de média`;
+                    document.getElementById('mvpMeta').innerHTML = `<small>🏆 ${mvp.partidas} jogo${mvp.partidas !== 1 ? 's' : ''}</small>`;
+                } else {
+                    document.getElementById('mvpNome').textContent = '---';
+                    document.getElementById('mvpStats').textContent = '⭐ 0.0 de média';
+                    document.getElementById('mvpMeta').innerHTML = '';
+                }
+            }
+            
+            // Atualizar estatísticas gerais (sobre o time)
+            function atualizarEstatisticasGerais() {
+                const dados = carregarDadosMes();
+                
+                const totalJogadores = dados.players?.length || 0;
+                const totalPartidas = dados.matches?.length || 0;
+                const totalGols = dados.matches?.reduce((sum, m) => 
+                    sum + m.estatisticas?.reduce((s, e) => s + (e.gols || 0), 0), 0) || 0;
+                const totalAssists = dados.matches?.reduce((sum, m) => 
+                    sum + m.estatisticas?.reduce((s, e) => s + (e.assists || 0), 0), 0) || 0;
+                
+                const jogadoresEl = document.getElementById('totalJogadores');
+                const partidasEl = document.getElementById('totalPartidas');
+                const golsEl = document.getElementById('totalGols');
+                const assistsEl = document.getElementById('totalAssists');
+                
+                if (jogadoresEl) jogadoresEl.textContent = totalJogadores;
+                if (partidasEl) partidasEl.textContent = totalPartidas;
+                if (golsEl) golsEl.textContent = totalGols;
+                if (assistsEl) assistsEl.textContent = totalAssists;
+            }
+            
+            // Navegação entre meses
+            if (prevMonthBtn) {
+                prevMonthBtn.addEventListener('click', function() {
+                    currentMonth--;
+                    if (currentMonth < 1) {
+                        currentMonth = 12;
+                        currentYear--;
+                    }
+                    atualizarTituloMes();
+                    atualizarDestaquesMes();
+                });
+            }
+            
+            if (nextMonthBtn) {
+                nextMonthBtn.addEventListener('click', function() {
+                    currentMonth++;
+                    if (currentMonth > 12) {
+                        currentMonth = 1;
+                        currentYear++;
+                    }
+                    atualizarTituloMes();
+                    atualizarDestaquesMes();
+                });
+            }
+            
+            // Inicializar
+            atualizarTituloMes();
+            atualizarDestaquesMes();
+            atualizarEstatisticasGerais();
+            
+            // Atualizar a cada 30 segundos
+            setInterval(() => {
+                atualizarDestaquesMes();
+                atualizarEstatisticasGerais();
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

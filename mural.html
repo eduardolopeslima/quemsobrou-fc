@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Sobrou FC - Estatísticas</title>
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-futbol"></i>
+                <h1>Quem Sobrou FC</h1>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Início
+                </a>
+                <a href="mural.html" class="nav-link active">
+                    <i class="fas fa-chart-bar"></i> Estatísticas
+                </a>
+                <a href="tournament.html" class="nav-link">
+                    <i class="fas fa-trophy"></i> Campeonatos
+                </a>
+                <button id="admin-login-btn" class="nav-btn">
+                    <i class="fas fa-user-shield"></i> Admin
+                </button>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ============================================ -->
+    <main class="container">
+        <h1><i class="fas fa-chart-bar"></i> Mural de Estatísticas</h1>
+        
+        <!-- SELETOR DE PERÍODO -->
+        <div class="period-selector">
+            <button class="period-btn prev-period"><i class="fas fa-chevron-left"></i></button>
+            <span id="currentPeriod">2024</span>
+            <button class="period-btn next-period"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="period-tabs">
+            <button class="period-tab active" data-period-type="year">Visão Anual</button>
+            <button class="period-tab" data-period-type="month">Visão Mensal</button>
+        </div>
+        
+        
+        
+        <!-- ESTATÍSTICAS GERAIS -->
+        <div id="periodStats" class="stats-grid"></div>
+        
+        <!-- RANKING DE JOGADORES -->
+        <h2><i class="fas fa-ranking-star"></i> Ranking de Jogadores</h2>
+        <div id="playerStatsGrid" class="player-stats-grid"></div>
+        <div id="noPlayersMessage" class="empty-state">
+            <p>Nenhum jogador com estatísticas no período.</p>
+        </div>
+        
+ 
+        <h2><i class="fas fa-history"></i> Histórico de Partidas</h2>
+        <div id="matchesList" class="matches-list"></div>
+        <div id="noMatchesMessage" class="empty-state">
+            <p>Nenhuma partida registrada no período.</p>
+        </div>
+    </main>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-shield"></i> Acesso Administrativo</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" class="form-control" placeholder="Digite seu usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="remember-me"> Lembrar meu usuário
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Entrar no Painel
+                    </button>
+                    <div id="login-error" class="login-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="error-message">Usuário ou senha incorretos</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Quem Sobrou FC. Todos os direitos reservados.</p>
+                <p>V1.2.26</p>
+        </div>
+    </footer>
+    <script src="js/credentials.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mural.js"></script>
+</body>
+</html>
