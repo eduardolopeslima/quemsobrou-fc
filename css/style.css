@@ -1912,54 +1912,162 @@ margin-top: 60px;
     }
     
     /* RESPONSIVIDADE */
-    @media (max-width: 992px) {
-        .stats-cards-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .month-selector {
-            grid-template-columns: repeat(3, 1fr);
-        }
+   /* Melhorias na responsividade */
+
+/* Tablets e telas médias */
+@media (max-width: 992px) {
+    .stats-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px; /* Reduz um pouco o espaçamento */
     }
     
-    @media (max-width: 768px) {
-        .period-container {
-            flex-direction: column;
-        }
-        
-        .period-tabs {
-            width: 100%;
-        }
-        
-        .period-tab {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .stats-cards-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .month-selector {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .players-cards-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .matches-grid {
-            grid-template-columns: 1fr;
-        }
+    .month-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+}
+
+/* Celulares grandes e tablets pequenos */
+@media (max-width: 768px) {
+    /* Container principal com padding ajustado */
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+        overflow-x: hidden; /* Evita rolagem horizontal */
     }
     
-    @media (max-width: 480px) {
-        .month-selector {
-            grid-template-columns: 1fr;
-        }
-        
-        .period-navigation {
-            width: 100%;
-            justify-content: center;
-        }
+    .period-container {
+        flex-direction: column;
+        gap: 12px;
     }
+    
+    .period-tabs {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .period-tab {
+        flex: 1 1 auto;
+        min-width: 80px; 
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 14px; 
+        white-space: nowrap; 
+    }
+    
+    .stats-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+
+    .month-selector {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .month-selector button {
+        padding: 10px 5px;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .players-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .matches-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* Ajustes para tabelas e cards */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+        margin: 0 -12px;
+        padding: 0 12px;
+        width: calc(100% + 24px);
+    }
+    
+    table {
+        min-width: 500px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    .month-selector {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .month-selector button {
+        width: 100%;
+        padding: 12px 8px;
+        font-size: 16px;
+    }
+    
+    .period-navigation {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .period-navigation button {
+        min-width: 100px;
+        padding: 10px 12px;
+    }
+
+    .period-tabs {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .period-tab {
+        width: 100%;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    .card, .stat-card, .player-card {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .period-tab {
+        font-size: 13px;
+        padding: 8px 4px;
+    }
+    
+    .month-selector button {
+        font-size: 14px;
+        padding: 10px 4px;
+    }
+    
+    .period-navigation button {
+        min-width: 80px;
+        font-size: 13px;
+    }
+}
